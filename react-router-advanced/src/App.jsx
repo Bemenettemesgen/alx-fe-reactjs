@@ -1,19 +1,25 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Profile from "./components/Profile";
-import ProfileDetails from "./components/ProfileDetails";
-import ProfileSettings from "./components/ProfileSettings";
-import BlogPost from "./components/BlogPost";
+import Login from "./components/Login";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 const App = () => {
     return (
         <Router>
             <Routes>
-                <Route path="/profile" element={<Profile />}>
-                    <Route path="details" element={<ProfileDetails />} />
-                    <Route path="settings" element={<ProfileSettings />} />
-                </Route>
-                <Route path="/blog/:id" element={<BlogPost />} />
+                {/* Public route: Login */}
+                <Route path="/" element={<Login />} />
+
+                {/* Protected route: Profile */}
+                <Route
+                    path="/profile"
+                    element={
+                        <ProtectedRoute>
+                            <Profile />
+                        </ProtectedRoute>
+                    }
+                />
             </Routes>
         </Router>
     );
