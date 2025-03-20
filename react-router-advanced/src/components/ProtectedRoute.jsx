@@ -1,11 +1,11 @@
 import React from "react";
 import { Navigate } from "react-router-dom";
+import useAuth from "../hooks/useAuth";
 
 const ProtectedRoute = ({ children }) => {
-    // Simulated authentication check
-    const isAuthenticated = localStorage.getItem("authToken");
+    const isAuthenticated = useAuth();
 
-    // If the user is authenticated, render the children components
+    // If the user is authenticated, render the child components
     return isAuthenticated ? children : <Navigate to="/" />;
 };
 
