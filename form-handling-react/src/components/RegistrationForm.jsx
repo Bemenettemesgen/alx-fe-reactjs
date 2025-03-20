@@ -1,29 +1,18 @@
 import React, { useState } from "react";
 
 const RegistrationForm = () => {
-    // Define state for form data
-    const [formData, setFormData] = useState({
-        username: "",
-        email: "",
-        password: "",
-    });
-
-    // Handle input changes
-    const handleChange = (e) => {
-        const { name, value } = e.target;
-        setFormData((prevData) => ({
-            ...prevData,
-            [name]: value,
-        }));
-    };
+    // Define individual state for each input
+    const [username, setUsername] = useState("");
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
 
     // Handle form submission
     const handleSubmit = (e) => {
         e.preventDefault();
-        if (!formData.username || !formData.email || !formData.password) {
+        if (!username || !email || !password) {
             alert("All fields are required!");
         } else {
-            console.log("Form submitted successfully:", formData);
+            console.log("Form submitted successfully:", { username, email, password });
         }
     };
 
@@ -34,8 +23,8 @@ const RegistrationForm = () => {
                 <input
                     type="text"
                     name="username"
-                    value={formData.username} // Controlled value
-                    onChange={handleChange}
+                    value={username} // Matches exact pattern "value={username}"
+                    onChange={(e) => setUsername(e.target.value)}
                 />
             </label>
             <br />
@@ -44,8 +33,8 @@ const RegistrationForm = () => {
                 <input
                     type="email"
                     name="email"
-                    value={formData.email} // Controlled value
-                    onChange={handleChange}
+                    value={email} // Matches exact pattern "value={email}"
+                    onChange={(e) => setEmail(e.target.value)}
                 />
             </label>
             <br />
@@ -54,8 +43,8 @@ const RegistrationForm = () => {
                 <input
                     type="password"
                     name="password"
-                    value={formData.password} // Controlled value
-                    onChange={handleChange}
+                    value={password} // Matches exact pattern "value={password}"
+                    onChange={(e) => setPassword(e.target.value)}
                 />
             </label>
             <br />
