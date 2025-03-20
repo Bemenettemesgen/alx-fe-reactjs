@@ -1,15 +1,12 @@
-// src/components/ProtectedRoute.jsx
-import { Navigate, Outlet } from "react-router-dom";
+import React from "react";
+import { Navigate } from "react-router-dom";
 
 const ProtectedRoute = ({ children }) => {
-  const isAuthenticated = false; // Replace with actual auth logic (e.g., Redux or Context)
-  
-  if (!isAuthenticated) {
-    return <Navigate to="/" replace />; // Redirect to home if not authenticated
-  }
+    // Simulated authentication check
+    const isAuthenticated = localStorage.getItem("authToken");
 
-  // Render children or nested routes via <Outlet />
-  return children || <Outlet />;
+    // If the user is authenticated, render the children components
+    return isAuthenticated ? children : <Navigate to="/" />;
 };
 
 export default ProtectedRoute;
