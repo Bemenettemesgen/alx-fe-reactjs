@@ -1,22 +1,40 @@
-import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+// src/App.jsx
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Home from "./components/Home";
 import Profile from "./components/Profile";
-import ProfileDetails from "./components/ProfileDetails";
-import ProfileSettings from "./components/ProfileSettings";
-import BlogPost from "./components/BlogPost";
+import ProtectedRoute from "./components/ProtectedRoute"; // Import the ProtectedRoute component
 
-const App = () => {
-    return (
-        <Router>
-            <Routes>
-                <Route path="/profile" element={<Profile />}>
-                    <Route path="details" element={<ProfileDetails />} />
-                    <Route path="settings" element={<ProfileSettings />} />
-                </Route>
-                <Route path="/blog/:id" element={<BlogPost />} />
-            </Routes>
-        </Router>
-    );
-};
+// Define nested routes for the profile section
+const profileRoutes = [
+  {
+    path: "details",
+    element: <div>Profile Details</div>, // Replace with actual component
+  },
+  {
+    path: "settings",
+    element: <div>Profile Settings</div>, // Replace with actual component
+  },
+];
+
+// Configure the router with protected routes
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Home />,
+  },
+  {
+    path: "/profile",
+    element: (
+      <ProtectedRoute> {/* Wrap protected content with ProtectedRoute */}
+        <Profile />
+      </ProtectedRoute>
+    ),
+    children: profileRoutes, // Nested routes under /profile
+  },
+]);
+
+function App() {
+  return <RouterProvider router={router} />;
+}
 
 export default App;
