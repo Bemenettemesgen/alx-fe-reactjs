@@ -1,22 +1,10 @@
-// src/App.jsx
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./components/Home";
 import Profile from "./components/Profile";
-import ProtectedRoute from "./components/ProtectedRoute"; // Import the ProtectedRoute component
+import ProtectedRoute from "./components/ProtectedRoute";
+import BlogPost from "./components/BlogPost"; // Import the BlogPost component
 
-// Define nested routes for the profile section
-const profileRoutes = [
-  {
-    path: "details",
-    element: <div>Profile Details</div>, // Replace with actual component
-  },
-  {
-    path: "settings",
-    element: <div>Profile Settings</div>, // Replace with actual component
-  },
-];
-
-// Configure the router with protected routes
+// Configure the router
 const router = createBrowserRouter([
   {
     path: "/",
@@ -25,11 +13,19 @@ const router = createBrowserRouter([
   {
     path: "/profile",
     element: (
-      <ProtectedRoute> {/* Wrap protected content with ProtectedRoute */}
+      <ProtectedRoute>
         <Profile />
       </ProtectedRoute>
     ),
-    children: profileRoutes, // Nested routes under /profile
+    children: [
+      { path: "details", element: <div>Profile Details</div> },
+      { path: "settings", element: <div>Profile Settings</div> },
+    ],
+  },
+  // Add the dynamic route for blog posts
+  {
+    path: "/blog/:id",
+    element: <BlogPost />, // Render the BlogPost component
   },
 ]);
 
