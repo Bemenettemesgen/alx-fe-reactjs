@@ -1,36 +1,22 @@
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Home from "./components/Home";
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Profile from "./components/Profile";
-import ProtectedRoute from "./components/ProtectedRoute";
-import BlogPost from "./components/BlogPost"; // Import the BlogPost component
+import ProfileDetails from "./components/ProfileDetails";
+import ProfileSettings from "./components/ProfileSettings";
+import BlogPost from "./components/BlogPost";
 
-// Configure the router
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <Home />,
-  },
-  {
-    path: "/profile",
-    element: (
-      <ProtectedRoute>
-        <Profile />
-      </ProtectedRoute>
-    ),
-    children: [
-      { path: "details", element: <div>Profile Details</div> },
-      { path: "settings", element: <div>Profile Settings</div> },
-    ],
-  },
-  // Add the dynamic route for blog posts
-  {
-    path: "/blog/:id",
-    element: <BlogPost />, // Render the BlogPost component
-  },
-]);
-
-function App() {
-  return <RouterProvider router={router} />;
-}
+const App = () => {
+    return (
+        <Router>
+            <Routes>
+                <Route path="/profile" element={<Profile />}>
+                    <Route path="details" element={<ProfileDetails />} />
+                    <Route path="settings" element={<ProfileSettings />} />
+                </Route>
+                <Route path="/blog/:id" element={<BlogPost />} />
+            </Routes>
+        </Router>
+    );
+};
 
 export default App;
