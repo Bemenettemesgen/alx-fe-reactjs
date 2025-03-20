@@ -1,17 +1,7 @@
 import React from "react";
-import { Link, Outlet } from "react-router-dom";
 
-const Profile = () => {
-    return (
-        <div>
-            <h1>Profile</h1>
-            <nav>
-                <Link to="details">Profile Details</Link>
-                <Link to="settings">Profile Settings</Link>
-            </nav>
-            <Outlet />
-        </div>
-    );
+const ProfileDetails = () => {
+    return <div>These are your Profile Details.</div>;
 };
 
-export default Profile;
+export default ProfileDetails;
