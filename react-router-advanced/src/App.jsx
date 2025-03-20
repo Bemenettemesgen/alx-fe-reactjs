@@ -4,7 +4,7 @@ import Profile from "./components/Profile";
 import ProfileDetails from "./components/ProfileDetails";
 import ProfileSettings from "./components/ProfileSettings";
 import BlogPost from "./components/BlogPost";
-
+import protectedRoute from "./components/ProtectedRoute";
 const App = () => {
     return (
         <Router>
