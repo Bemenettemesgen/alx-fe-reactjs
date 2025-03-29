@@ -1,3 +1,5 @@
+import Counter from './components/Counter';
+import Counter from './components/Counter';
 import Header from './components/Header';
 import MainContent from './components/MainContent';
 import Footer from './components/Footer';
@@ -11,14 +13,17 @@ import WelcomeMessage from './components/WelcomeMessage';
 import { useState } from 'react';
 import reactLogo from './assets/react.svg';
 import viteLogo from '/vite.svg';
+import Counter from './components/Counter';
 function App() {
     return (
         <div>
+              <Counter />
               <UserProfile name="Alice" age="25" bio="Loves hiking and photography" />
             <Header />
             <MainContent />
             <Footer />
             <UserProfile name="Alice" age="25" bio="Loves hiking and photography" />
+            <Counter />
         </div>
     );
 }
@@ -29,6 +34,7 @@ function App() {
         <>
             <WelcomeMessage /> {/* First instance of WelcomeMessage */}
             <div>
+            <Counter />
             <UserProfile name="Alice" age="25" bio="Loves hiking and photography" />
                 <a href="https://vite.dev" target="_blank" rel="noreferrer">
                     <img src={viteLogo} className="logo" alt="Vite logo" />
