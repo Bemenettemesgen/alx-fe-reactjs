@@ -1,6 +1,8 @@
 import Header from './components/Header';
 import MainContent from './components/MainContent';
 import Footer from './components/Footer';
+import UserProfile from './components/UserProfile';
+import UserProfile from './components/UserProfile';
 import Header from './components/Header';
 import MainContent from './components/MainContent';
 import Footer from './components/Footer';
@@ -12,9 +14,11 @@ import viteLogo from '/vite.svg';
 function App() {
     return (
         <div>
+              <UserProfile name="Alice" age="25" bio="Loves hiking and photography" />
             <Header />
             <MainContent />
             <Footer />
+            <UserProfile name="Alice" age="25" bio="Loves hiking and photography" />
         </div>
     );
 }
@@ -25,6 +29,7 @@ function App() {
         <>
             <WelcomeMessage /> {/* First instance of WelcomeMessage */}
             <div>
+            <UserProfile name="Alice" age="25" bio="Loves hiking and photography" />
                 <a href="https://vite.dev" target="_blank" rel="noreferrer">
                     <img src={viteLogo} className="logo" alt="Vite logo" />
                 </a>
