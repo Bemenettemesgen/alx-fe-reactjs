@@ -1,3 +1,5 @@
+import React, { useContext } from 'react';
+import UserContext from '../UserContext'; // Adjust the path based on your project structure
 import UserContext from './UserContext';
 import UserContext from './UserContext';
 import UserContext from './UserContext';
@@ -18,7 +20,10 @@ import UserContext from './UserContext';
 import React from 'react';
 import ProfilePage from './ProfilePage';
 import UserContext from './UserContext'; // Import your context here
-import ProfilePage from './ProfilePage';
+import ProfilePage from './ProfilePage';import React, { useContext } from 'react';
+import UserContext from '../UserContext'; // Adjust the path based on your project structure
+
+
 function App() {
     const userData = { name: "Jane Doe", email: "jane.doe@example.com" };
 
@@ -30,6 +35,9 @@ function App() {
 }
 
 export default App;
+import React, { useContext } from 'react';
+import UserContext from '../UserContext'; // Adjust the path based on your project structure
+
 
 function App() {
     return (
@@ -42,6 +50,9 @@ function App() {
         </div>
     );
 }
+import React, { useContext } from 'react';
+import UserContext from '../UserContext'; // Adjust the path based on your project structure
+
 function App() {
     const [count, setCount] = useState(0);
 
