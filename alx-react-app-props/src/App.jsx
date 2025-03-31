@@ -1,5 +1,6 @@
 import UserContext from './UserContext';
 import UserContext from './UserContext';
+import UserContext from './UserContext';
 import Header from './components/Header';
 import MainContent from './components/MainContent';
 import Footer from './components/Footer';
@@ -14,6 +15,22 @@ import { useState } from 'react';
 import reactLogo from './assets/react.svg';
 import viteLogo from '/vite.svg';
 import UserContext from './UserContext';
+import React from 'react';
+import ProfilePage from './ProfilePage';
+import UserContext from './UserContext'; // Import your context here
+import ProfilePage from './ProfilePage';
+function App() {
+    const userData = { name: "Jane Doe", email: "jane.doe@example.com" };
+
+    return (
+        <UserContext.Provider value={userData}>
+            <ProfilePage />
+        </UserContext.Provider>
+    );
+}
+
+export default App;
+
 function App() {
     return (
         <div>
