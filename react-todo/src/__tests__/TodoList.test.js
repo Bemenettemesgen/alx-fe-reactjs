@@ -4,7 +4,3 @@ test("renders the TodoList component", () => {
     render(<TodoList />);
     expect(screen.getByText("Todo List")).toBeInTheDocument();
 });
-test("renders the TodoList component", () => {
-    render(<TodoList />);
-    expect(screen.getByText("Todo List")).toBeInTheDocument();
-});
