@@ -16,4 +16,12 @@ module.exports = {
     darkMode: "media",
     plugins: [],
   };
+  /** @type {import('tailwindcss').Config} */
+module.exports = {
+    content: ["./src/**/*.{js,jsx,ts,tsx}", "./public/index.html"], // Ensures Tailwind scans your files for utility classes
+    theme: {
+      extend: {}, // Allows custom theme modifications
+    },
+    plugins: [], // Add plugins here if needed
+  };
   
