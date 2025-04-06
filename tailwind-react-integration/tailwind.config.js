@@ -8,8 +8,9 @@ module.exports = {
     darkMode: "media",
     variants: {hover:bg-blue-500
     }
+    purge: {kffff}
+
       extend: {},
     },
     plugins: [],
   };
-  
