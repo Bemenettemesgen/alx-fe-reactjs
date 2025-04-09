@@ -1,4 +1,5 @@
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts'
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import PropTypes from 'prop-types';
 
 export default function ProgressChart({ workouts }) {
   const processData = () => {
@@ -6,8 +7,8 @@ export default function ProgressChart({ workouts }) {
       date: new Date(workout.date).toLocaleDateString(),
       weight: workout.weight,
       volume: workout.sets * workout.reps * workout.weight
-    }))
-  }
+    }));
+  };
 
   return (
     <div className="p-4 bg-white dark:bg-gray-800 rounded shadow">
@@ -36,5 +37,9 @@ export default function ProgressChart({ workouts }) {
         </ResponsiveContainer>
       </div>
     </div>
-  )
+  );
 }
+
+ProgressChart.propTypes = {
+  workouts: PropTypes.array.isRequired
+};

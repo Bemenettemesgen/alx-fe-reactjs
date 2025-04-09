@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { saveWorkouts } from '../utils/storage'
 
 export default function WorkoutLogForm({ onSave }) {
   const [workout, setWorkout] = useState({
@@ -12,12 +13,19 @@ export default function WorkoutLogForm({ onSave }) {
     e.preventDefault()
     const newWorkout = {
       ...workout,
+      id: Date.now(),
       date: new Date().toISOString(),
       sets: parseInt(workout.sets),
       reps: parseInt(workout.reps),
       weight: parseFloat(workout.weight)
     }
-    onSave(newWorkout)
+    
+    onSave(prev => {
+      const updated = [...prev, newWorkout]
+      saveWorkouts(updated)
+      return updated
+    })
+    
     setWorkout({ exercise: '', sets: '', reps: '', weight: '' })
   }
 
@@ -38,6 +46,7 @@ export default function WorkoutLogForm({ onSave }) {
           value={workout.sets}
           onChange={(e) => setWorkout({ ...workout, sets: e.target.value })}
           className="p-2 border rounded dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+          min="1"
           required
         />
         <input
@@ -46,6 +55,7 @@ export default function WorkoutLogForm({ onSave }) {
           value={workout.reps}
           onChange={(e) => setWorkout({ ...workout, reps: e.target.value })}
           className="p-2 border rounded dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+          min="1"
           required
         />
         <input
@@ -54,6 +64,8 @@ export default function WorkoutLogForm({ onSave }) {
           value={workout.weight}
           onChange={(e) => setWorkout({ ...workout, weight: e.target.value })}
           className="p-2 border rounded dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+          min="0"
+          step="0.1"
           required
         />
       </div>

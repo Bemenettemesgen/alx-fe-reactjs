@@ -1,34 +1,36 @@
-import { useState, useEffect } from 'react'
-import axios from 'axios'
+import { useState, useEffect } from 'react';
+import axios from 'axios';
+import LoadingSpinner from './LoadingSpinner';
+import PropTypes from 'prop-types';
 
 export default function ExerciseSearch() {
-  const [exercises, setExercises] = useState([])
-  const [searchTerm, setSearchTerm] = useState('')
-  const [loading, setLoading] = useState(false)
-  const [error, setError] = useState('')
+  const [exercises, setExercises] = useState([]);
+  const [searchTerm, setSearchTerm] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
 
   const fetchExercises = async () => {
     try {
-      setLoading(true)
-      setError('')
+      setLoading(true);
+      setError('');
       const response = await axios.get(
         `https://wger.de/api/v2/exercise/?language=2&search=${searchTerm}`
-      )
-      setExercises(response.data.results)
+      );
+      setExercises(response.data.results);
     } catch (err) {
-      setError('Failed to fetch exercises. Please try again later.')
+      setError('Failed to fetch exercises. Please try again later.');
     } finally {
-      setLoading(false)
+      setLoading(false);
     }
-  }
+  };
 
   useEffect(() => {
     const delayDebounce = setTimeout(() => {
-      if (searchTerm) fetchExercises()
-    }, 500)
+      if (searchTerm) fetchExercises();
+    }, 500);
 
-    return () => clearTimeout(delayDebounce)
-  }, [searchTerm])
+    return () => clearTimeout(delayDebounce);
+  }, [searchTerm]);
 
   return (
     <div className="p-4">
@@ -40,12 +42,8 @@ export default function ExerciseSearch() {
         className="w-full p-2 mb-4 border rounded dark:bg-gray-700 dark:border-gray-600 dark:text-white"
       />
 
-      {loading && (
-        <div className="text-center py-4">
-          <div className="animate-spin rounded-full h-12 w-12 border-t-4 border-blue-500 mx-auto"></div>
-        </div>
-      )}
-
+      {loading && <LoadingSpinner />}
+      
       {error && (
         <div className="p-4 bg-red-100 text-red-700 rounded dark:bg-red-200">
           {error}
@@ -63,5 +61,9 @@ export default function ExerciseSearch() {
         ))}
       </div>
     </div>
-  )
+  );
 }
+
+ExerciseSearch.propTypes = {
+  onSelect: PropTypes.func
+};

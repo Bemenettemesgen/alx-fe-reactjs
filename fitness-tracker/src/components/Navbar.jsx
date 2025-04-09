@@ -8,7 +8,6 @@ export default function Navbar({ darkMode, setDarkMode }) {
         <Link to="/" className="text-xl font-bold dark:text-white">
           Fitness Tracker
         </Link>
-        
         <div className="flex items-center gap-4">
           <Link to="/history" className="dark:text-gray-200 hover:text-blue-500">
             History
