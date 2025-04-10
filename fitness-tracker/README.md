@@ -18,4 +18,31 @@ A workout tracking app built with React and Tailwind CSS, integrated with the WG
 ## Setup  
 1. Clone the repo:  
    ```bash  
-   git clone https://github.com/Bemenettemesgen/fitness-tracker  
+   git clone https://github.com/Bemenettemesgen/alx-fe-reactjs/tree/main/fitness-tracker
+
+## Project Structure
+fitness-tracker/
+├── public/
+├── src/
+│   ├── components/
+│   │   ├── Navbar.jsx
+│   │   ├── WorkoutLogForm.jsx
+│   │   ├── WorkoutHistory.jsx
+│   │   ├── ProgressChart.jsx
+│   │   ├── ExerciseSearch.jsx
+│   │   ├── LoadingSpinner.jsx
+│   │   └── ErrorBoundary.jsx
+        └── Header.jsx
+│   ├── pages/
+│   │   ├── Dashboard.jsx
+│   │   ├── ExerciseList.jsx
+│   │   └── WorkoutHistoryPage.jsx
+│   ├── utils/
+│   │   └── storage.js
+│   ├── App.jsx
+│   ├── main.jsx
+│   └── index.css
+├── tailwind.config.js
+├── postcss.config.js
+├── package.json
+└── README.md  
