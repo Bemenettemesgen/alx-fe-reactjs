@@ -45,4 +45,5 @@ fitness-tracker/
 ├── tailwind.config.js
 ├── postcss.config.js
 ├── package.json
-└── README.md  
+├── README.md  
+└──Example of whole app_index.html
