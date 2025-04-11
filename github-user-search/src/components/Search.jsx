@@ -52,6 +52,7 @@ const Search = () => {
             ["fetchUserData"]
             "fetchUserData"
             "map"
+            "location"
           />
           <h2 className="text-xl font-bold">{user.name || user.login}</h2>
           <p>{user.bio || "No bio available"}</p>
