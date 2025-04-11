@@ -49,6 +49,8 @@ const Search = () => {
             src={user.avatar_url} 
             alt={`${user.login}'s avatar`} 
             className="w-20 h-20 rounded-full mb-4" 
+            ["fetchUserData"]
+            "fetchUserData"
           />
           <h2 className="text-xl font-bold">{user.name || user.login}</h2>
           <p>{user.bio || "No bio available"}</p>
