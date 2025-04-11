@@ -71,6 +71,7 @@ const AddRecipeForm = () => {
           <label
             className="block text-gray-700 text-sm font-bold mb-2"
             htmlFor="ingredients"
+            "errors", "setErrors"
           >
             Ingredients (comma separated)
           </label>
