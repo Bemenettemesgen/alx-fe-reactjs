@@ -17,7 +17,7 @@ const Search = () => {
       const response = await axios.get(`https://api.github.com/users/${username}`);
       setUser(response.data);
     } catch (err) {
-      setError("Looks like we can't find the user.");
+      setError("Looks like we cant find the user");
     } finally {
       setLoading(false);
     }
@@ -35,20 +35,29 @@ const Search = () => {
           required
         />
         <button type="submit" className="bg-blue-500 text-white p-2 rounded hover:bg-blue-600 transition">
-          Search
+          {loading ? "Loading" : "Search"}
         </button>
       </form>
 
-      {loading && <p className="text-center text-gray-600 mt-4">Loading...</p>}
-
-      {error && <p className="text-center text-red-500 mt-4">{error}</p>}
+      {error && (
+        <p className="text-center text-red-500 mt-4">{error}</p>
+      )}
 
       {user && (
         <div className="mt-6 border p-4 rounded flex flex-col items-center shadow">
-          <img src={user.avatar_url} alt={`${user.login}'s avatar`} className="w-20 h-20 rounded-full mb-4" />
+          <img 
+            src={user.avatar_url} 
+            alt={`${user.login}'s avatar`} 
+            className="w-20 h-20 rounded-full mb-4" 
+          />
           <h2 className="text-xl font-bold">{user.name || user.login}</h2>
           <p>{user.bio || "No bio available"}</p>
-          <a href={user.html_url} target="_blank" rel="noreferrer" className="text-blue-500 hover:underline mt-2">
+          <a
+            href={user.html_url}
+            target="_blank"
+            rel="noreferrer"
+            className="text-blue-500 hover:underline mt-2"
+          >
             View GitHub Profile
           </a>
         </div>
