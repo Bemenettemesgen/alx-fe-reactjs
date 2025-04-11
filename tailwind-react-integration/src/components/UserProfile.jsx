@@ -3,6 +3,7 @@ import React from 'react';
 function UserProfile() {
   return (
     <div className="bg-gray-100 p-4 md:p-8 max-w-xs md:max-w-sm mx-auto my-20 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+"UserProfile"
       <img
         src="https://via.placeholder.com/150"
         alt="User"
